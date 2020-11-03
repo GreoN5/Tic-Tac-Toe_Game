@@ -527,7 +527,7 @@ namespace TicTacToe
 
 		private string CheckColumns()
 		{
-			// if there are same characters on the columns and they are not empty it will return the charcter that is in these positions
+			// if there are same characters on the columns and they are not empty it will return the character that is in these positions
 			if ((this._board[0] == this._board[3]) && (this._board[3] == this._board[6]) &&
 				this._board[0] != "-" && this._board[3] != "-" && this._board[6] != "-")
 			{
@@ -549,7 +549,7 @@ namespace TicTacToe
 
 		private string CheckDiagonals()
 		{
-			// if there are same characters on the diagonals and they are not empty it will return the charcter that is in these positions
+			// if there are same characters on the diagonals and they are not empty it will return the character that is in these positions
 			if ((this._board[0] == this._board[4]) && (this._board[4] == this._board[8]) &&
 				this._board[0] != "-" && this._board[4] != "-" && this._board[8] != "-")
 			{
