@@ -14,7 +14,7 @@ namespace TicTacToe
 		public string Winner { get; private set; } = null; // the winner which will be defined later in the game
 		private Player _player; // the user that will interact with the console
 		private Bot _bot; // the bot that will compete with the player (AI)
-		private Random _random = new Random(); // for making ranodm numbers (it is used below)
+		private Random _random = new Random(); // for making randomm numbers (it is used below)
 
 		public Game(Player player, Bot bot)
 		{
@@ -125,7 +125,7 @@ namespace TicTacToe
 				}
 				else
 				{
-					continue; // continues looping if the character choosen from the input is invalid
+					continue; // continues looping if the character chosen from the input is invalid
 				}
 			}
 		}
@@ -566,14 +566,31 @@ namespace TicTacToe
 
 		private bool CheckPlayerOrBotForWin(string playerName)
 		{
-			var bot = this._bot.GetName();
+			if (CheckColumnForBotOrPlayer(playerName))
+			{
+				return true;
+			}
 
-			// checking rows
+			if (CheckRowsForBotOrPlayer(playerName))
+			{
+				return true;
+			}
+
+			if (CheckDiagonalsForBotOrPlayer(playerName))
+			{
+				return true;
+			}
+
+			return false;
+		}
+
+		private bool CheckRowsForBotOrPlayer(string playerName)
+		{
 			if (this._board[0] == playerName && this._board[1] == playerName)
 			{
 				if (this._board[2] == "-")
 				{
-					this._board[2] = bot;
+					this._board[2] = this._bot.GetName();
 					return true;
 				}
 			}
@@ -581,7 +598,7 @@ namespace TicTacToe
 			{
 				if (this._board[0] == "-")
 				{
-					this._board[0] = bot;
+					this._board[0] = this._bot.GetName();
 					return true;
 				}
 			}
@@ -589,7 +606,7 @@ namespace TicTacToe
 			{
 				if (this._board[5] == "-")
 				{
-					this._board[5] = bot;
+					this._board[5] = this._bot.GetName();
 					return true;
 				}
 			}
@@ -597,7 +614,7 @@ namespace TicTacToe
 			{
 				if (this._board[3] == "-")
 				{
-					this._board[3] = bot;
+					this._board[3] = this._bot.GetName();
 					return true;
 				}
 			}
@@ -605,7 +622,7 @@ namespace TicTacToe
 			{
 				if (this._board[8] == "-")
 				{
-					this._board[8] = bot;
+					this._board[8] = this._bot.GetName();
 					return true;
 				}
 			}
@@ -613,7 +630,7 @@ namespace TicTacToe
 			{
 				if (this._board[6] == "-")
 				{
-					this._board[6] = bot;
+					this._board[6] = this._bot.GetName();
 					return true;
 				}
 			}
@@ -621,7 +638,7 @@ namespace TicTacToe
 			{
 				if (this._board[1] == "-")
 				{
-					this._board[1] = bot;
+					this._board[1] = this._bot.GetName();
 					return true;
 				}
 			}
@@ -629,7 +646,7 @@ namespace TicTacToe
 			{
 				if (this._board[4] == "-")
 				{
-					this._board[4] = bot;
+					this._board[4] = this._bot.GetName();
 					return true;
 				}
 			}
@@ -637,17 +654,21 @@ namespace TicTacToe
 			{
 				if (this._board[7] == "-")
 				{
-					this._board[7] = bot;
+					this._board[7] = this._bot.GetName();
 					return true;
 				}
 			}
 
-			// checking columns
+			return false;
+		}
+
+		private bool CheckColumnForBotOrPlayer(string playerName)
+		{
 			if (this._board[0] == playerName && this._board[3] == playerName)
 			{
 				if (this._board[6] == "-")
 				{
-					this._board[6] = bot;
+					this._board[6] = this._bot.GetName();
 					return true;
 				}
 			}
@@ -655,7 +676,7 @@ namespace TicTacToe
 			{
 				if (this._board[0] == "-")
 				{
-					this._board[0] = bot;
+					this._board[0] = this._bot.GetName();
 					return true;
 				}
 			}
@@ -663,7 +684,7 @@ namespace TicTacToe
 			{
 				if (this._board[3] == "-")
 				{
-					this._board[3] = bot;
+					this._board[3] = this._bot.GetName();
 					return true;
 				}
 			}
@@ -671,7 +692,7 @@ namespace TicTacToe
 			{
 				if (this._board[7] == "-")
 				{
-					this._board[7] = bot;
+					this._board[7] = this._bot.GetName();
 					return true;
 				}
 			}
@@ -679,7 +700,7 @@ namespace TicTacToe
 			{
 				if (this._board[1] == "-")
 				{
-					this._board[1] = bot;
+					this._board[1] = this._bot.GetName();
 					return true;
 				}
 			}
@@ -687,7 +708,7 @@ namespace TicTacToe
 			{
 				if (this._board[4] == "-")
 				{
-					this._board[4] = bot;
+					this._board[4] = this._bot.GetName();
 					return true;
 				}
 			}
@@ -695,7 +716,7 @@ namespace TicTacToe
 			{
 				if (this._board[8] == "-")
 				{
-					this._board[8] = bot;
+					this._board[8] = this._bot.GetName();
 					return true;
 				}
 			}
@@ -703,7 +724,7 @@ namespace TicTacToe
 			{
 				if (this._board[2] == "-")
 				{
-					this._board[2] = bot;
+					this._board[2] = this._bot.GetName();
 					return true;
 				}
 			}
@@ -711,17 +732,21 @@ namespace TicTacToe
 			{
 				if (this._board[5] == "-")
 				{
-					this._board[5] = bot;
+					this._board[5] = this._bot.GetName();
 					return true;
 				}
 			}
 
-			// checking diagonals
+			return false;
+		}
+
+		private bool CheckDiagonalsForBotOrPlayer(string playerName)
+		{
 			if (this._board[0] == playerName && this._board[4] == playerName)
 			{
 				if (this._board[8] == "-")
 				{
-					this._board[8] = bot;
+					this._board[8] = this._bot.GetName();
 					return true;
 				}
 			}
@@ -729,7 +754,7 @@ namespace TicTacToe
 			{
 				if (this._board[0] == "-")
 				{
-					this._board[0] = bot;
+					this._board[0] = this._bot.GetName();
 					return true;
 				}
 			}
@@ -737,7 +762,7 @@ namespace TicTacToe
 			{
 				if (this._board[4] == "-")
 				{
-					this._board[4] = bot;
+					this._board[4] = this._bot.GetName();
 					return true;
 				}
 			}
@@ -745,7 +770,7 @@ namespace TicTacToe
 			{
 				if (this._board[6] == "-")
 				{
-					this._board[6] = bot;
+					this._board[6] = this._bot.GetName();
 					return true;
 				}
 			}
@@ -753,7 +778,7 @@ namespace TicTacToe
 			{
 				if (this._board[2] == "-")
 				{
-					this._board[2] = bot;
+					this._board[2] = this._bot.GetName();
 					return true;
 				}
 			}
@@ -761,7 +786,7 @@ namespace TicTacToe
 			{
 				if (this._board[4] == "-")
 				{
-					this._board[4] = bot;
+					this._board[4] = this._bot.GetName();
 					return true;
 				}
 			}
